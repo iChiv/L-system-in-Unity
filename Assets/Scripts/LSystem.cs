@@ -24,7 +24,7 @@ public class LSystem : MonoBehaviour
     [SerializeField] private GameObject leaf;
     [SerializeField] private UI ui;
     
-    private const string axiom = "X";
+    private string axiom = "X";
     private Stack<TransformInfo> transformStack;
     private int _titleLastFrame;
     private int _iterationsLastFrame;
@@ -53,7 +53,7 @@ public class LSystem : MonoBehaviour
 
         _rules = new Dictionary<char, string>()
         {
-            { 'X', "[FX][-FX][+FX]" },
+            { 'X', "[F-[X+X]+F[+FX]-X]" },
             { 'F', "FF" }
         };
         
